@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateObjectTypesTable extends Migration
+class CreateFPAttributeTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateObjectTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('object_types', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('f_p_attribute_types', function (Blueprint $table) {
+            $table->bigIncrements('attribute_type_id');
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateObjectTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('object_types');
+        Schema::dropIfExists('f_p_attribute_types');
     }
 }
