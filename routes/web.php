@@ -16,5 +16,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::prefix('dashboard')->middleware(['auth'])->group(function(){
+    
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/create/{OT}','FPCreateController@create')->name('create');
+    // Route::get('/create','FPCreateController@create')->name('create');
+    // Route::get('/create','FPCreateController@create')->name('create');
+});
